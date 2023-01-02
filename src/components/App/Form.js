@@ -1,8 +1,7 @@
+import { toHaveDisplayValue } from "@testing-library/jest-dom/dist/matchers";
 import React from "react";
 import { Component } from "react";
 import './Form.css'
-
-// { stance: <String>, name: <String>, obstacle: <String>', tutorial: <String>}
 
 class Form extends Component {
     constructor() {
@@ -15,10 +14,27 @@ class Form extends Component {
         }
     }
 
+    handleChange = event => {
+        this.setState({ [event.target.name]: event.target.value })
+    }
+
+    submitTrick = event => {
+        event.preventDefault()
+        const newTrick = {
+            ...this.state
+        }
+        this.props.addTrick(newTrick)
+        this.clearInputs()
+    }
+
+    clearInputs = () => {
+        this.setState({ stance: '', name: '', obstacle: '', tutorial: '' })
+    }
+
     render() {
         return (
             <form>
-                <select name="trickStance" id="trickStance">
+                <select name="stance" id="trickStance" onChange={event => this.handleChange(event)}>
                     <option value="...">Choose your Stance</option>
                     <option value="regular">regular</option>
                     <option value="switch">switch</option>
@@ -26,11 +42,12 @@ class Form extends Component {
                 <input
                     type='text'
                     placeholder='Name of Trick'
-                    name='trickName'
+                    name='name'
                     value={this.state.name}
+                    onChange={event => this.handleChange(event)}
                 />
-                <select name="trickObstacle" id="trickObstacle">
-                <option value="...">Choose your Obstacle</option>
+                <select name="obstacle" id="trickObstacle" onChange={event => this.handleChange(event)}>
+                    <option value="...">Choose your Obstacle</option>
                     <option value="flatground">flatground</option>
                     <option value="ledge">ledge</option>
                     <option value="rail">rail</option>
@@ -40,10 +57,11 @@ class Form extends Component {
                 <input
                     type='text'
                     placeholder='Link to Tutorial'
-                    name='trickTutorial'
+                    name='tutorial'
                     value={this.state.tutorial}
+                    onChange={event => this.handleChange(event)}
                 />
-                <button>Send It!</button>
+                <button onClick={event => this.submitTrick(event)}>Send It!</button>
             </form>
         )
     }

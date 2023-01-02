@@ -18,16 +18,6 @@ class App extends Component {
     }
   }
 
-  render() {
-    return (
-      <div className="App">
-        <h1>Sick Trick Wish List</h1>
-        <Form />
-        <Tricks trickList={this.state.trickList}/>
-      </div>
-    )
-  }
-
   getTricks = () => {
     fetch('http://localhost:3001/api/v1/tricks')
       .then(response => response.json())
@@ -40,6 +30,20 @@ class App extends Component {
 
   componentDidMount = () => {
     this.getTricks()
+  }
+
+  addTrick = (newTrick) => {
+    this.setState({ trickList: [...this.state.trickList, newTrick] })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Sick Trick Wish List</h1>
+        <Form addTrick={this.addTrick}/>
+        <Tricks trickList={this.state.trickList} />
+      </div>
+    )
   }
 }
 
