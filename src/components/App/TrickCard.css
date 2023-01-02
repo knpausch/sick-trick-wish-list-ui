@@ -1,0 +1,10 @@
+.trickcard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    width: 500px;
+    height: 200px;
+    margin-right: 50px;
+    border-radius: 15px;
+}

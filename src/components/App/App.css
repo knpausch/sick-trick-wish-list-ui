@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.trick-container{
+  display: flex;
+  justify-content: center;
 }
 
 .App-header {

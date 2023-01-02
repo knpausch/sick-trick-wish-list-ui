@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './App.css';
+import TrickCard from './TrickCard';
 
 // Get all existing tricks from the API on page load and display them on the DOM.
 
@@ -9,13 +10,18 @@ class App extends Component {
     this.state={
       trickList: []
     }
-
   }
 
   render() {
     return (
       <div className="App">
         <h1>Sick Trick Wish List</h1>
+        <div className='trick-container'>
+        <TrickCard />
+        <TrickCard />
+        <TrickCard />
+
+        </div>
       </div>
     )
   }
