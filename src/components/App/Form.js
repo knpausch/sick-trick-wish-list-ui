@@ -43,6 +43,7 @@ class Form extends Component {
                     type='text'
                     placeholder='Name of Trick'
                     name='name'
+                    id='name'
                     value={this.state.name}
                     onChange={event => this.handleChange(event)}
                 />
@@ -58,6 +59,7 @@ class Form extends Component {
                     type='text'
                     placeholder='Link to Tutorial'
                     name='tutorial'
+                    id='tutorial'
                     value={this.state.tutorial}
                     onChange={event => this.handleChange(event)}
                 />
