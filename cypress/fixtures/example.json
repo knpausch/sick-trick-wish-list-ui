@@ -1,5 +1,8 @@
-{
-  "name": "Using fixtures to represent data",
-  "email": "hello@cypress.io",
-  "body": "Fixtures are a great way to mock data for responses to routes"
-}
+[
+  {
+    "name": "treflip",
+    "obstacle": "flat ground",
+    "stance": "regular",
+    "tutorial": "https://www.youtube.com/watch?v=XGw3YkQmNig"
+  }
+]
