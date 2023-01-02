@@ -1,0 +1,10 @@
+input, button, select{
+    height: 40px;
+    font-size: 25px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+form{
+    padding-bottom: 50px;
+}
